@@ -49,7 +49,7 @@ router.post('/login', async (request, response) => {
     }
 
     const [exisiting_user] = await db.query(`
-        SELECT id, email , password FROM users WHERE email = ? `, [email])
+        SELECT id, email, role, password FROM users WHERE email = ? `, [email])
 
     if (exisiting_user.length === 0) {
         return response.status(400).json({
@@ -63,7 +63,8 @@ router.post('/login', async (request, response) => {
 
     const payload = {
         id: user.id,
-        email
+        email: user.email,
+        role: user.role
     }
 
     if (!password_checking) {
