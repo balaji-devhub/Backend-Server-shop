@@ -7,6 +7,9 @@ import useAccess from './router/userRouter/userAccess.js'
 import adminAuth from './router/adminRoute/adminAuth.js'
 import adminAccess from './router/adminRoute/adminAcess.js'
 
+
+import cors from "cors";
+
 dotenv.config()
 
 const PORT = process.env.PORT
@@ -16,6 +19,11 @@ const app = express()
 app.use(express.json())
 
 database()
+
+
+app.use(cors({
+    origin: "*",
+}));
 
 // router middleware 
 
