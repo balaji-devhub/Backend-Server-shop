@@ -73,7 +73,7 @@ router.post('/login', async (request, response) => {
         });
     }
 
-    const token = jwt.sign(payload, process.env.JWT_SCECRET_KEY, {
+    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {
         expiresIn: "1d"
     })
 

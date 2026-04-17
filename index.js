@@ -5,6 +5,7 @@ import userAuth from './router/userRouter/userLogin.js'
 import useAccess from './router/userRouter/userAccess.js'
 
 import adminAuth from './router/adminRoute/adminAuth.js'
+import adminAccess from './router/adminRoute/adminAcess.js'
 
 dotenv.config()
 
@@ -22,7 +23,7 @@ database()
 app.use('/user', userAuth, useAccess)
 
 // admin route
-app.use('/admin', adminAuth)
+app.use('/admin', adminAuth, adminAccess)
 
 app.get('/', (reqest, response) => {
     response.send('Xon  Server')
