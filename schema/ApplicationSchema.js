@@ -3,10 +3,6 @@ import connection from '../db/database.js'
 const database_initialize = async () => {
     const connect = await connection.getConnection()
 
-    await connect.query(`CREATE DATABASE IF NOT EXISTS SHOP_ECOM`)
-
-    await connect.query(`USE SHOP_ECOM`)
-
     await connect.query(`
     CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
